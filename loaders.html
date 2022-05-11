@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            background-color: #282121a1;
+            color: #fff;
+            height: 100vh;
+            padding: 25px;
+        }
+        
+        .commonStyles {
+            padding: 10px;
+            background: cadetblue;
+            border-radius: 8px;
+        }
+        
+        .animationArea {
+            max-width: 100px;
+        }
+        
+        .output {
+            padding: 10px;
+            border-radius: 8px;
+        }
+        
+        .dflex {
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+        }
+        
+        code,
+        pre {
+            font-family: consolas;
+        }
+        
+        pre {
+            background: cadetblue;
+            padding: 16px;
+            border-radius: 8px;
+            margin: 30px 60px;
+            min-width: 480px;
+        }
+        
+        code {
+            border-radius: 8px;
+            /* background: cadetblue; */
+        }
+        
+        .loader {
+            width: 64px;
+            height: 64px;
+            border-radius: 50%;
+        }
+        
+        @keyframes spin {
+            to {
+                transform: rotate(365deg);
+            }
+        }
+        
+        .spin {
+            border-top: 8px solid rgba(255, 255, 255, 1);
+            border-left: 8px solid rgba(255, 255, 255, 1);
+            border-right: 8px solid rgba(255, 255, 255, 0);
+            animation: spin 0.575s infinite linear;
+        }
+        
+        @keyframes pulse {
+            0% {
+                transform: scale(0.15);
+                opacity: 0;
+            }
+            50% {
+                opacity: 1;
+            }
+            100% {
+                transform: scale(1);
+                opacity: 0;
+            }
+        }
+        
+        .pulse {
+            background-color: #fff;
+            animation: pulse 0.85s infinite linear;
+        }
+        
+        @keyframes clock {
+            to {
+                transform: rotate(359deg);
+            }
+        }
+        
+        .clock {
+            position: relative;
+            border: 2px solid #f9f9f9;
+        }
+        
+        .clock::after {
+            content: "";
+            position: absolute;
+            bottom: 30px;
+            left: 30px;
+            display: block;
+            transform-origin: 0% 100%;
+            width: 1px;
+            height: 24px;
+            background: #f9f9f9;
+            animation: clock 1s infinite linear;
+        }
+        
+        @keyframes fill {
+            0% {
+                box-shadow: 0 0 #ed3b65 inset;
+            }
+            100% {
+                box-shadow: 0 -70px #ed3b65 inset;
+            }
+        }
+        
+        .fill {
+            transform: perspective(140px) rotateX(-45deg);
+            width: 32px;
+            height: 72px;
+            position: relative;
+            border: 2px solid #fff;
+            border-radius: unset;
+            animation: fill 1.5s linear infinite alternate;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="commonStyles">
+        <code>
+            body {
+                background-color: #000;
+            }
+            
+            .loader {
+                width: 64px;
+                height: 64px;
+                border-radius: 50%;
+            }
+        </code>
+    </div>
+    <div class="output">
+        <div class="dflex">
+            <div class="animationArea">
+                <div class="loader spin"></div>
+            </div>
+            <div class="code">
+                <code>
+<pre>
+@keyframes spin {
+    to {
+        transform: rotate(365deg);
+    }
+}
+
+.spin {
+    border-top: 8px solid rgba(255, 255, 255, 1);
+    border-left: 8px solid rgba(255, 255, 255, 1);
+    border-right: 8px solid rgba(255, 255, 255, 0);
+    animation: spin 0.575s infinite linear;
+}  
+</pre>
+                </code>
+            </div>
+        </div>
+        <div class="dflex">
+            <div class="animationArea">
+                <div class="loader pulse">
+
+                </div>
+            </div>
+            <div class="code">
+                <code>
+<pre>
+@keyframes pulse {
+    0% {
+        transform: scale(0.15);
+        opacity: 0;
+    }
+    50% {
+        opacity: 1;
+    }
+    100% {
+        transform: scale(1);
+        opacity: 0;
+    }
+}
+
+.pulse {
+    background-color: #fff;
+    animation: pulse 0.85s infinite linear;
+}
+</pre>
+                </code>
+            </div>
+        </div>
+        <div class="dflex">
+            <div class="animationArea">
+                <div class="loader clock"></div>
+            </div>
+            <div class="code">
+                <code>
+<pre>
+@keyframes clock {
+    to {
+        transform: rotate(359deg);
+    }
+}
+
+.clock {
+    position: relative;
+    border: 2px solid #f9f9f9;
+}
+
+.clock::after {
+    content: "";
+    position: absolute;
+    bottom: 30px;
+    left: 30px;
+    display: block;
+    transform-origin: 0% 100%;
+    width: 1px;
+    height: 24px;
+    background: #f9f9f9;
+    animation: clock 1s infinite linear;
+}
+</pre>
+                </code>
+            </div>
+        </div>
+        <div class="dflex">
+            <div class="animationArea">
+                <div class="loader fill"></div>
+            </div>
+            <div class="code">
+                <code>
+<pre>
+@keyframes fill {
+    0% {
+        box-shadow: 0 0 #ed3b65 inset;
+    }
+    100% {
+        box-shadow: 0 -70px #ed3b65 inset;
+    }
+}
+
+.fill {
+    transform: perspective(140px) rotateX(-45deg);
+    width: 32px;
+    height: 72px;
+    position: relative;
+    border: 2px solid #fff;
+    border-radius: unset;
+    animation: fill 1.5s linear infinite alternate;
+}
+</pre>
+                </code>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
